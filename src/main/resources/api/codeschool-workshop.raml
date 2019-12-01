@@ -1,0 +1,128 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/8255f7dd-70c5-4733-9647-1b26226ef265/ # 
+version: v1
+title: codeSchool workshop
+
+types:
+  
+/user:
+  get:
+    responses:
+      200:
+        description: Successfull response
+        body:
+          application/json:
+            items:
+              properties:
+                _id:
+                  type: string
+                email:
+                  type: string
+                name:
+                  type: string
+                surname:
+                  type: string
+                team:
+                  type: string
+                project:
+                  type: string
+      400:
+        description: Bad Request Error.
+  post:
+    body:
+      application/json:
+        type: object
+        properties:
+          email:
+            type: string
+          name:
+            type: string
+          surname:
+            type: string
+          team:
+            type: string
+          project:
+            type: string
+    responses: 
+        201:
+          description: It supposed to be created a new user
+          body:
+            application/json:
+              type: object
+              properties:
+                _id:
+                  type: string
+        400:
+          description: Bad idea
+  /{id}:
+    get:
+      responses:
+        200:
+          description: Successfull retrieve on one entity
+          body:
+            application/json:
+              type: object
+              properties: 
+                _id:
+                  type: object
+                  properties: 
+                    $oid:
+                      type: string
+                email:
+                  type: string
+                name:
+                  type: string
+                surname:
+                  type: string
+                team:
+                  type: string
+                project:
+                  type: string
+    delete:
+      responses:
+        200:
+          description: Successfull Delete
+    put:
+      body:
+        application/json:
+          type: object
+          properties:
+            email:
+              type: string
+            name:
+              type: string
+            surname:
+              type: string
+            team:
+              type: string
+            project:
+              type: string
+      responses: 
+          200:
+            description: It supposed to be created a new user
+            body:
+              application/json:
+                type: object
+                properties:
+                  matchedCount:
+                    type: object
+                    properties:
+                      $numberLong:
+                        type: string
+                  modifiedCount:
+                    type: object
+                    properties:
+                      $numberLong:
+                        type: string
+                  upsertId:
+                    type: string | nil
+
+                
+                              
+
+                    
+                
+                    
+                
+
+                    
